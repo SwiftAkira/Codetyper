@@ -52,7 +52,7 @@ CodeTyper is a powerful web application that lets you create realistic code typi
 
 ## 🎮 Demo
 
-Check out the [live demo](https://example.com/codetyper) to see CodeTyper in action!
+Check out the [live demo](https://codetyper-delta.vercel.app) to see CodeTyper in action!
 
 Or explore these sample animations:
 - [Building a React component](https://example.com/demo1)
@@ -62,7 +62,7 @@ Or explore these sample animations:
 
 ### Option 1: Use the hosted version
 
-The easiest way to use CodeTyper is to access the hosted version at [https://example.com/codetyper](https://example.com/codetyper).
+The easiest way to use CodeTyper is to access the hosted version at [https://codetyper-delta.vercel.app](https://codetyper-delta.vercel.app).
 
 ### Option 2: Run locally
 
@@ -260,6 +260,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
   <p>
     <a href="https://github.com/yourusername">GitHub</a> •
     <a href="https://twitter.com/yourusername">Twitter</a> •
-    <a href="https://yourwebsite.com">Website</a>
+    <a href="https://codetyper-delta.vercel.app">Try CodeTyper</a>
   </p>
 </div> 
