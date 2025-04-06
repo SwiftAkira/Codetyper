@@ -1,0 +1,69 @@
+# RenderType MVP Task List
+
+**Phase 1: Core Setup & Basic Typing (React Focus)**
+
+*   **MYA 1.1:**  Basic Project Structure: React app created with Vite, Tailwind configured, basic `App.jsx` layout (textarea, buttons, container).
+*   **MYA 1.2:**  Integrate CodeMirror Component: `@uiw/react-codemirror` added, initialized in `App.jsx` with basic theme and JS language support, set to read-only.
+*   **MYA 1.3:** Implement Basic Character Insertion Logic:
+    *   Add `editorValue` state to `App.jsx` using `useState('')` to control the CodeMirror component's `value`.
+    *   Add `animationIndex` state `useState(0)` to track the current character position in `inputCode`.
+    *   Add `isAnimating` state `useState(false)`.
+    *   Add `timeoutRef = useRef(null)` to store the ID of the `setTimeout`.
+    *   In `handleStartAnimation`:
+        *   Check if already animating; if so, return.
+        *   Clear previous animation: `setEditorValue('')`, `setAnimationIndex(0)`.
+        *   Set `isAnimating(true)`.
+        *   Define a recursive function `typeNextCharacter()`.
+        *   Inside `typeNextCharacter()`:
+            *   Check if `animationIndex` has reached the end of `inputCode`. If yes, set `isAnimating(false)` and return.
+            *   Get the next character: `const char = inputCode[animationIndex];`
+            *   Update the editor state: `setEditorValue(prev => prev + char);`
+            *   Increment the index: `setAnimationIndex(prev => prev + 1);`
+            *   Schedule the next call: `timeoutRef.current = setTimeout(typeNextCharacter, BASE_DELAY);` (Define `BASE_DELAY` for now, e.g., 100ms).
+        *   Start the process: `typeNextCharacter()`.
+    *   **Initial Goal:** Code appears character by character in the editor at a fixed speed when "Start" is clicked.
+
+**Phase 2: Timing & Pauses (Refining the Loop)**
+
+*   **MYA 2.1:** Implement Variable Delay:
+    *   Modify the `setTimeout` delay calculation in `typeNextCharacter()`.
+    *   Calculate delay: `const delay = BASE_DELAY + (Math.random() * RANDOM_DELAY_RANGE) - (RANDOM_DELAY_RANGE / 2);` (Define `RANDOM_DELAY_RANGE`, e.g., 60ms).
+    *   Use this calculated `delay`.
+    *   **Goal:** Typing speed varies slightly per character.
+*   **MYA 2.2:** Implement Newline Pauses:
+    *   Inside `typeNextCharacter()`, *before* scheduling the next call, check the *current* character (`char`).
+    *   If `char === '\n'`, add a significant pause duration to the calculated `delay` (e.g., `delay += NEWLINE_PAUSE;`, define `NEWLINE_PAUSE`, e.g., 400ms).
+    *   **Goal:** Noticeable pauses after typing a newline.
+*   **MYA 2.3:** Implement Punctuation/Whitespace Pauses:
+    *   Add similar checks for other characters (e.g., `.;{}() `).
+    *   Add smaller, additional pause durations for these (e.g., `delay += PUNCTUATION_PAUSE;`). Define constants.
+    *   **Goal:** More nuanced pauses reflecting code structure.
+
+**Phase 3: Imperfections & Controls (Adding Realism)**
+
+*   **MYA 3.1:** Implement Basic Typo Simulation:
+    *   Modify `typeNextCharacter()`. Before scheduling the *correct* character insertion:
+    *   Add a probability check (e.g., `Math.random() < TYPO_CHANCE`, define `TYPO_CHANCE`).
+    *   If typo occurs:
+        *   Calculate the incorrect character (e.g., `'X'` or adjacent key).
+        *   Insert the incorrect character: `setEditorValue(prev => prev + incorrectChar);`
+        *   Schedule a `setTimeout` for the "realization" delay (using `timeoutRef`). Inside its callback:
+            *   Delete the incorrect character: `setEditorValue(prev => prev.slice(0, -1));` (Simple string slice for now).
+            *   Schedule another `setTimeout` for the "correction" delay (using `timeoutRef`). Inside *its* callback:
+                *   Insert the *correct* character: `setEditorValue(prev => prev + correctChar);`
+                *   Increment `animationIndex`.
+                *   Schedule the *next* `typeNextCharacter` call with appropriate delay.
+    *   If no typo occurs, proceed as before (insert correct char, increment index, schedule next call).
+    *   **Note:** This sequential `setTimeout` approach simplifies state management compared to complex CodeMirror transactions for this MVP stage.
+    *   **Goal:** Occasional mistakes appear and get corrected via backspace simulation.
+*   **MYA 3.2:** Implement Full Reset Functionality:
+    *   In `handleReset`:
+        *   Clear any ongoing timeouts: `if (timeoutRef.current) { clearTimeout(timeoutRef.current); }`
+        *   Reset component state: `setInputCode('')`, `setEditorValue('')`, `setAnimationIndex(0)`, `setIsAnimating(false)`.
+    *   Modify `handleStartAnimation` to also clear existing timeouts before starting a new animation.
+    *   **Goal:** Reset button reliably stops animation and clears state.
+*   **MYA 3.3 (Polish):** Refine Parameters & Feel:
+    *   Experiment with constants (`BASE_DELAY`, `RANDOM_DELAY_RANGE`, `NEWLINE_PAUSE`, `PUNCTUATION_PAUSE`, `TYPO_CHANCE`, typo correction delays) to achieve a more natural feel.
+    *   Test with different code snippets.
+    *   Ensure cursor simulation (implicit via appending to `editorValue` in this simplified model) looks reasonable.
+    *   **Goal:** Improve the subjective quality of the simulation.
