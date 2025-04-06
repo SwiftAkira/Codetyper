@@ -2,21 +2,137 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <!-- Favicons -->
+    <link rel="icon" href="/icons/favicon.ico" sizes="any">
+    <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+    <meta name="theme-color" content="#1e1e1e">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>CodeTyper - VS Code Theme</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #1e1e1e;
+        color: #d4d4d4;
+      }
+      .vscode-header {
+        background-color: #252526;
+        border-bottom: 1px solid #333;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .vscode-button {
+        background-color: #0e639c;
+        border: none;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 2px;
+        font-size: 13px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+      .vscode-button:hover {
+        background-color: #1177bb;
+      }
+      .vscode-button.reset {
+        background-color: #4d4d4d;
+      }
+      .vscode-button.reset:hover {
+        background-color: #5f5f5f;
+      }
+      .vscode-icon-button {
+        background: transparent;
+        border: none;
+        color: #cccccc;
+        cursor: pointer;
+        padding: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 3px;
+      }
+      .vscode-icon-button:hover {
+        background-color: #3c3c3c;
+        color: #ffffff;
+      }
+    </style>
   </head>
   <body>
+    <div class="vscode-header">
+      <span>CodeTyper - VS Code Theme</span>
+      <div class="header-buttons">
+        <button id="export-mp4-button" class="vscode-button" title="Export to MP4">
+          Export to MP4
+        </button>
+        <button id="settings-button" class="vscode-icon-button" title="Settings">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
     <div id="app" class="container mx-auto p-4 h-screen flex flex-col">
-      <h1 class="text-2xl font-bold mb-4 text-center">RenderType MVP (TS)</h1>
-      <div id="editor-container" class="flex-grow border border-gray-600 rounded mb-4 bg-gray-800">
+      <div id="settings-panel" class="mb-4 p-3 bg-gray-800 rounded border border-gray-600 hidden">
+        <h3 class="text-sm font-semibold mb-2 text-gray-300">Settings</h3>
+        <div class="flex flex-col space-y-3">
+          <div class="flex items-center space-x-3">
+            <span class="text-sm text-gray-300 w-16">Persona:</span>
+            <select id="persona-select" class="flex-grow bg-gray-700 text-gray-300 rounded px-2 py-1 text-sm border border-gray-600">
+              <option value="junior">Junior Developer</option>
+              <option value="regular" selected>Regular Developer</option>
+              <option value="senior">Senior Developer</option>
+              <option value="tenx">10x Engineer</option>
+            </select>
+          </div>
+          <div id="persona-description" class="text-sm text-gray-400 italic">
+            Balanced typing speed and accuracy
+          </div>
+          <div class="flex items-center space-x-3">
+            <span class="text-sm text-gray-300 w-16">Speed:</span>
+            <input 
+              id="speed-slider" 
+              type="range" 
+              min="0.5" 
+              max="2.5" 
+              step="0.1" 
+              value="1.0" 
+              class="flex-grow h-2 appearance-none bg-gray-700 rounded-lg cursor-pointer"
+            >
+            <span id="speed-value" class="text-sm text-gray-300 w-10 text-right">1.0x</span>
+          </div>
+          
+          <div class="border-t border-gray-600 pt-3 mt-1">
+            <h4 class="text-sm font-semibold mb-2 text-gray-300">Guided Demos</h4>
+            <div class="flex items-center space-x-3 mb-2">
+              <span class="text-sm text-gray-300 w-16">Demo:</span>
+              <select id="demo-select" class="flex-grow bg-gray-700 text-gray-300 rounded px-2 py-1 text-sm border border-gray-600">
+                <option value="">-- Select a demo --</option>
+                <option value="reactComponent">Building a React Component</option>
+                <option value="algorithmSolution">Solving an Algorithm Problem</option>
+              </select>
+            </div>
+            <div id="demo-description" class="text-sm text-gray-400 italic mb-2 hidden">
+              Watch as we create a functional React component with hooks
+            </div>
+            <button id="start-demo-button" class="vscode-button w-full hidden">
+              Start Guided Demo
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="editor-container" class="flex-grow mb-4 shadow-md">
         <!-- CodeMirror will be attached here -->
       </div>
       <div class="flex justify-center space-x-4">
-        <button id="start-button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        <button id="start-button" class="vscode-button">
           Start Animation
         </button>
-        <button id="reset-button" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+        <button id="reset-button" class="vscode-button reset">
           Reset
         </button>
       </div>

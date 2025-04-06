@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="256" height="256" rx="32" fill="#1E1E1E"/>
+  
+  <!-- Code brackets and cursor -->
+  <path d="M80 70L40 128L80 186" stroke="#569CD6" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M176 70L216 128L176 186" stroke="#569CD6" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M144 48L112 208" stroke="#CE9178" stroke-width="16" stroke-linecap="round"/>
+  
+  <!-- Blinking cursor -->
+  <rect x="128" y="128" width="5" height="40" fill="#FFFFFF">
+    <animate attributeName="opacity" values="1;0;1" dur="1.5s" repeatCount="indefinite"/>
+  </rect>
+</svg> 

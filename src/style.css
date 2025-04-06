@@ -1,3 +1,9 @@
+/* 
+ * Tailwind CSS directives - these will be processed by the Tailwind CSS plugin
+ * The linter may show warnings, but they can be safely ignored if Tailwind is configured
+ */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom styles below */

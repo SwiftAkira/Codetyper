@@ -1,0 +1,452 @@
+/* VS Code Default Dark+ theme for CodeMirror */
+.cm-editor {
+  background-color: #1e1e1e !important;
+  color: #d4d4d4;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Add monospace font throughout */
+body, button, select {
+  font-family: 'Consolas', 'Courier New', monospace;
+}
+
+/* VS Code-like scrollbars */
+::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(121, 121, 121, 0.4);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(100, 100, 100, 0.7);
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.cm-content {
+  caret-color: #d4d4d4;
+  background-color: #1e1e1e !important;
+}
+
+.cm-line {
+  padding: 0 4px 0 4px;
+  background-color: transparent !important;
+}
+
+/* Force dark background on editor parts */
+.cm-editor .cm-content,
+.cm-editor .cm-scroller,
+.cm-editor .cm-tooltip,
+.cm-editor .cm-panels,
+.cm-editor .cm-selectionBackground,
+.cm-editor .cm-cursor {
+  background-color: #1e1e1e !important; 
+}
+
+/* Improved line numbers styling to match VS Code */
+.cm-editor .cm-gutters {
+  background-color: #1e1e1e !important;
+  color: #858585;
+  border: none;
+  padding-right: 8px;
+  min-width: 40px;
+}
+
+.cm-editor .cm-lineNumbers .cm-gutterElement {
+  padding: 0 4px 0 10px;
+  min-width: 20px;
+  text-align: right;
+  color: #858585;
+  background-color: #1e1e1e !important;
+}
+
+.cm-editor .cm-activeLineGutter {
+  background-color: #2a2d2e !important;
+  color: #c6c6c6;
+  font-weight: normal;
+}
+
+.cm-editor .cm-activeLine {
+  background-color: #2a2d2e;
+}
+
+/* Add separation between gutter and editor */
+.cm-editor .cm-scroller {
+  overflow: auto;
+}
+
+.cm-editor .cm-gutters {
+  border-right: 1px solid #333;
+}
+
+/* CSS-specific syntax highlighting */
+.cm-propertyName {
+  color: #9cdcfe !important;
+}
+
+.cm-variableName {
+  color: #9cdcfe !important;
+}
+
+.cm-definition {
+  color: #9cdcfe !important;
+}
+
+/* CSS values */
+.cm-number {
+  color: #b5cea8 !important;
+}
+
+.cm-unit {
+  color: #b5cea8 !important;
+}
+
+.cm-atom {
+  color: #d19a66 !important;
+}
+
+/* CSS color values */
+.cm-color {
+  color: #ce9178 !important;
+}
+
+/* CSS important */
+.cm-important {
+  color: #569cd6 !important;
+}
+
+/* Comments */
+.cm-comment {
+  color: #6a9955 !important;
+  font-style: italic;
+}
+
+/* Punctuation and operators */
+.cm-operator, .cm-punctuation {
+  color: #d4d4d4 !important;
+}
+
+/* CSS braces and brackets */
+.cm-bracket {
+  color: #d4d4d4 !important;
+}
+
+/* CSS selectors and tags */
+.cm-tagName {
+  color: #d7ba7d !important;
+}
+
+.cm-selector {
+  color: #d7ba7d !important;
+}
+
+/* Syntax highlighting */
+.cm-keyword {
+  color: #569cd6;
+}
+
+/* VS Code specific keywords */
+.cm-keyword[data-token="if"],
+.cm-keyword[data-token="else"],
+.cm-keyword[data-token="for"],
+.cm-keyword[data-token="while"],
+.cm-keyword[data-token="switch"],
+.cm-keyword[data-token="case"],
+.cm-keyword[data-token="default"],
+.cm-keyword[data-token="try"],
+.cm-keyword[data-token="catch"],
+.cm-keyword[data-token="finally"],
+.cm-keyword[data-token="throw"],
+.cm-keyword[data-token="return"],
+.cm-keyword[data-token="break"],
+.cm-keyword[data-token="continue"],
+.cm-keyword[data-token="do"],
+.cm-keyword[data-token="yield"] {
+  color: #c586c0 !important; /* Purple like VS Code */
+}
+
+/* Class, new, this, etc. */
+.cm-keyword[data-token="class"],
+.cm-keyword[data-token="interface"],
+.cm-keyword[data-token="extends"],
+.cm-keyword[data-token="implements"],
+.cm-keyword[data-token="new"],
+.cm-keyword[data-token="this"],
+.cm-keyword[data-token="super"] {
+  color: #569cd6 !important; /* Blue like VS Code */
+}
+
+/* Variable declarations */
+.cm-keyword[data-token="let"],
+.cm-keyword[data-token="const"],
+.cm-keyword[data-token="var"] {
+  color: #569cd6 !important; /* Blue like VS Code */
+}
+
+/* Import statement specific colors */
+.cm-import {
+  color: #c586c0 !important; /* Purple like VS Code */
+}
+
+.cm-from {
+  color: #c586c0 !important; /* Purple like VS Code */
+}
+
+.cm-import-keyword {
+  color: #c586c0 !important; /* Purple like VS Code */
+}
+
+.cm-from-keyword {
+  color: #c586c0 !important; /* Purple like VS Code */
+}
+
+.cm-module-name {
+  color: #ce9178 !important; /* Orange for module strings */
+}
+
+.cm-def {
+  color: #dcdcaa !important; /* Gold/Yellow like VS Code */
+}
+
+.cm-meta.cm-import-statement .cm-operator {
+  color: #d4d4d4 !important; /* Braces in imports */
+}
+
+.cm-meta.cm-import-statement .cm-variable {
+  color: #9cdcfe !important; /* Import names */
+}
+
+.cm-meta.cm-import-statement .cm-propertyName {
+  color: #9cdcfe !important; /* Import names */
+}
+
+.cm-operator {
+  color: #d4d4d4;
+}
+
+.cm-variable {
+  color: #9cdcfe;
+}
+
+.cm-variable-2 {
+  color: #9cdcfe;
+}
+
+.cm-variable-3 {
+  color: #9cdcfe;
+}
+
+.cm-property {
+  color: #9cdcfe;
+}
+
+.cm-qualifier {
+  color: #d7ba7d;
+}
+
+.cm-meta {
+  color: #d4d4d4;
+}
+
+.cm-string {
+  color: #ce9178;
+}
+
+.cm-string-2 {
+  color: #ce9178;
+}
+
+/* Special command highlighting - Command names inside comments */
+.cm-comment span:not(.cm-comment) {
+  color: #dcdcaa !important;  /* Force yellow for command names like 'npx', 'npm', etc. */
+}
+
+/* Terminal command names */
+.cm-terminal-command {
+  color: #dcdcaa !important;
+  font-weight: 600;
+}
+
+/* JavaScript/TypeScript specific */
+.cm-tag {
+  color: #569cd6;
+}
+
+.cm-tag.cm-bracket {
+  color: #d4d4d4;
+}
+
+.cm-attribute {
+  color: #9cdcfe;
+}
+
+.cm-function {
+  color: #dcdcaa;
+}
+
+.cm-type {
+  color: #4ec9b0;
+}
+
+.cm-builtin {
+  color: #4ec9b0;
+}
+
+.cm-special {
+  color: #d7ba7d;
+}
+
+/* TypeScript specific */
+.cm-typescriptKeyword {
+  color: #569cd6;
+}
+
+.cm-typescriptFunctionName {
+  color: #dcdcaa;
+}
+
+.cm-typescriptInterfaceName,
+.cm-typescriptClassName {
+  color: #4ec9b0;
+}
+
+/* Selection */
+.cm-selectionBackground {
+  background-color: #264f78;
+}
+
+/* Match highlighting */
+.cm-searchMatch {
+  background-color: rgba(234, 92, 0, 0.33);
+  outline: 1px solid rgba(234, 92, 0, 0.5);
+}
+
+.cm-searchMatch.cm-searchMatch-selected {
+  background-color: #515c6a;
+}
+
+/* Matching brackets */
+.cm-matchingBracket, 
+.cm-nonmatchingBracket {
+  background-color: rgba(209, 134, 22, 0.5);
+}
+
+/* VS Code-style range input (slider) */
+input[type=range] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  background: #4a4a4a;
+  border-radius: 2px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 14px;
+  width: 14px;
+  border-radius: 7px;
+  background: #0e639c;
+  margin-top: -5px;
+  cursor: pointer;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]:focus::-webkit-slider-thumb {
+  background: #1177bb;
+}
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 4px;
+  background: #4a4a4a;
+  border-radius: 2px;
+}
+
+input[type=range]::-moz-range-thumb {
+  border: none;
+  height: 14px;
+  width: 14px;
+  border-radius: 7px;
+  background: #0e639c;
+  cursor: pointer;
+}
+
+/* Explanation tooltip */
+.explanation-tooltip {
+  animation: fadeIn 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  line-height: 1.5;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Custom code input textarea */
+textarea#custom-code-input {
+  resize: vertical;
+  min-height: 100px;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 13px;
+  color: #d4d4d4;
+  background-color: #1e1e1e;
+  border: 1px solid #3c3c3c;
+  padding: 8px;
+  line-height: 1.5;
+}
+
+textarea#custom-code-input:focus {
+  outline: none;
+  border-color: #007fd4;
+}
+
+/* Header styling */
+.vscode-header {
+  background-color: #252526;
+  border-bottom: 1px solid #333;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+#export-mp4-button {
+  font-size: 12px;
+  padding: 4px 10px;
+  height: 24px;
+  background-color: #0e639c;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#export-mp4-button:hover {
+  background-color: #1177bb;
+} 
